@@ -42,9 +42,9 @@ public class TileManager {
                 while (col < gamePanel.maxScreenCol){
                     char indexOfTile = map.charAt(col);
 
-                    //System.out.println(row + " " + col + " " + indexOfTile);
+                     
                     tileMap[row][col] = map.charAt(col);
-                    //System.out.println(tileMap[row][col]);
+                      ]]] 
                     col++;
                 }
                 row++;
