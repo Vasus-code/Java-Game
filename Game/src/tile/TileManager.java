@@ -14,7 +14,8 @@ public class TileManager {
 
     GamePanel gamePanel;
     Tile[] tile;
-    char[][] tileMap = new char[9][16];
+    char[][] tileMap = new char[9][16];/* it should be [gamePanel.maxScreenRow][gamePanel.maxScreenCol], but it turned out to be not working on my machine.
+    9 - is row, and 16 - is column */
 
 
     public TileManager(GamePanel gamePanel){
