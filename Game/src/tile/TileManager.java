@@ -4,7 +4,7 @@ import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +14,7 @@ public class TileManager {
 
     GamePanel gamePanel;
     Tile[] tile;
-    char[][] tileMap = new char[9][16];/* it should be [gamePanel.maxScreenRow][gamePanel.maxScreenCol], but it turned out to be not working on my machine.
-    9 - is row, and 16 - is column */
+    char[][] tileMap = new char[3200][3200];
 
 
     public TileManager(GamePanel gamePanel){
@@ -42,9 +41,9 @@ public class TileManager {
                 while (col < gamePanel.maxScreenCol){
                     char indexOfTile = map.charAt(col);
 
-                     
+                    //System.out.println(row + " " + col + " " + indexOfTile);
                     tileMap[row][col] = map.charAt(col);
-                      ]]] 
+                    //System.out.println(tileMap[row][col]);
                     col++;
                 }
                 row++;
@@ -66,6 +65,9 @@ public class TileManager {
             tile[2] = new Tile();
             tile[2].image = ImageIO.read(ClassLoader.getSystemResourceAsStream("tiles/water.png"));
 
+            tile[3] = new Tile();
+            tile[3].image = ImageIO.read(ClassLoader.getSystemResourceAsStream("tiles/sand.png"));
+
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -86,8 +88,10 @@ public class TileManager {
                 currentTile = tile[1];
             }if (tileMap[row][col] == 'c'){
                 currentTile = tile[2];
+            }if (tileMap[row][col] == 'd'){
+                currentTile = tile[3];
             }
-            System.out.println(tileMap[row][col]);
+
             g2.drawImage(currentTile.image, x, y, gamePanel.tileSize, gamePanel.tileSize, null);
             x += gamePanel.tileSize;
             col++;
